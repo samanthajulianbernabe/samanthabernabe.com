@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samantha Julian Bernabe — Operations Manager, Real Estate Data Systems</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders:wght@500;600;700&family=Big+Shoulders+Text:wght@500;600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#ece6d8;
+    --paper-deep:#e2dac6;
+    --ink:#21281f;
+    --ink-soft:#4a5246;
+    --kraft:#b89a5e;
+    --stamp:#a3372a;
+    --line:#bdaf8d;
+    --sage:#54624f;
+    --white-ish:#f6f2e7;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:64px 64px;
+    background-position:-1px -1px;
+  }
+
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--stamp);
+    outline-offset:3px;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- FILE TAB NAV ---------- */
+  .filetabs{
+    display:flex;
+    gap:6px;
+    padding:18px 28px 0;
+    max-width:920px;
+    margin:0 auto;
+    flex-wrap:wrap;
+  }
+  .filetabs a{
+    text-decoration:none;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    background:var(--paper-deep);
+    border:1px solid var(--line);
+    border-bottom:none;
+    padding:8px 14px 7px;
+    border-radius:4px 4px 0 0;
+    transition:color .15s ease, background .15s ease;
+  }
+  .filetabs a:hover{ color:var(--ink); background:var(--white-ish); }
+
+  /* ---------- HERO / RECORD HEADER ---------- */
+  header.record{
+    position:relative;
+    background:var(--white-ish);
+    border:1px solid var(--line);
+    border-radius:0 4px 4px 4px;
+    margin:0 auto 40px;
+    max-width:920px;
+    padding:48px 40px 40px;
+    overflow:hidden;
+  }
+  .wrap-header{ padding:0 28px; }
+
+  .file-id{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.08em;
+    color:var(--sage);
+    text-transform:uppercase;
+    margin:0 0 18px;
+  }
+
+  h1.name{
+    font-family:'Big Shoulders',sans-serif;
+    font-weight:700;
+    font-size:clamp(42px, 8vw, 76px);
+    line-height:0.92;
+    letter-spacing:.01em;
+    text-transform:uppercase;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+
+  .role-line{
+    font-family:'Big Shoulders Text',sans-serif;
+    font-weight:600;
+    font-size:20px;
+    letter-spacing:.02em;
+    color:var(--ink-soft);
+    margin:0 0 22px;
+    text-transform:uppercase;
+  }
+  .role-line span.div{ color:var(--kraft); margin:0 10px; }
+
+  .contact-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:18px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    border-top:1px dashed var(--line);
+    padding-top:18px;
+    margin-top:6px;
+  }
+  .contact-row a{ text-decoration:none; border-bottom:1px solid var(--kraft); }
+  .contact-row a:hover{ color:var(--stamp); border-color:var(--stamp); }
+
+  /* stamp */
+  .stamp{
+    position:absolute;
+    top:38px;
+    right:34px;
+    width:148px;
+    height:148px;
+    transform:rotate(-11deg);
+    pointer-events:none;
+  }
+  .stamp svg{ width:100%; height:100%; }
+  @media (max-width:640px){
+    .stamp{ width:108px; height:108px; top:20px; right:18px; }
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{
+    max-width:920px;
+    margin:0 auto 56px;
+    padding:0 28px;
+  }
+
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--stamp);
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin:0 0 20px;
+  }
+  .eyebrow::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background:var(--line);
+  }
+
+  h2.section-title{
+    font-family:'Big Shoulders',sans-serif;
+    font-weight:700;
+    font-size:clamp(26px,4vw,36px);
+    text-transform:uppercase;
+    margin:0 0 22px;
+    letter-spacing:.01em;
+  }
+
+  .summary-card{
+    background:var(--white-ish);
+    border:1px solid var(--line);
+    border-left:4px solid var(--stamp);
+    border-radius:0 4px 4px 0;
+    padding:28px 32px;
+    font-size:17px;
+    color:var(--ink);
+  }
+  .summary-card strong{ color:var(--stamp); }
+
+  /* ---------- SKILLS LEDGER ---------- */
+  .ledger{
+    border:1px solid var(--line);
+    border-radius:4px;
+    overflow:hidden;
+    background:var(--white-ish);
+  }
+  .ledger-row{
+    display:grid;
+    grid-template-columns:170px 1fr;
+    border-bottom:1px solid var(--line);
+  }
+  .ledger-row:last-child{ border-bottom:none; }
+  .ledger-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--sage);
+    background:var(--paper-deep);
+    padding:16px 16px;
+    border-right:1px solid var(--line);
+    display:flex;
+    align-items:center;
+  }
+  .ledger-tags{
+    padding:14px 18px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    align-items:center;
+  }
+  .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    padding:5px 10px;
+    border:1px solid var(--line);
+    border-radius:3px;
+    color:var(--ink-soft);
+    background:var(--paper);
+    white-space:nowrap;
+  }
+  @media (max-width:560px){
+    .ledger-row{ grid-template-columns:1fr; }
+    .ledger-label{ border-right:none; border-bottom:1px solid var(--line); }
+  }
+
+  /* ---------- CASE FILES (experience) ---------- */
+  .case{
+    background:var(--white-ish);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:30px 32px;
+    margin-bottom:24px;
+    position:relative;
+  }
+  .case-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:8px 20px;
+    border-bottom:1px dashed var(--line);
+    padding-bottom:16px;
+    margin-bottom:18px;
+  }
+  .case-title{
+    font-family:'Big Shoulders Text',sans-serif;
+    font-weight:600;
+    font-size:22px;
+    text-transform:uppercase;
+    letter-spacing:.01em;
+    margin:0;
+  }
+  .case-org{
+    font-size:14.5px;
+    color:var(--sage);
+    margin-top:4px;
+    font-weight:500;
+  }
+  .case-dates{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:.04em;
+    color:var(--ink-soft);
+    background:var(--paper-deep);
+    padding:5px 10px;
+    border-radius:3px;
+    border:1px solid var(--line);
+    white-space:nowrap;
+  }
+  .case-brief{
+    font-style:italic;
+    color:var(--ink-soft);
+    margin:0 0 18px;
+    font-size:15px;
+  }
+  ul.findings{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  ul.findings li{
+    position:relative;
+    padding-left:22px;
+    margin-bottom:11px;
+    font-size:15px;
+  }
+  ul.findings li::before{
+    content:"›";
+    position:absolute;
+    left:0;
+    top:0;
+    color:var(--stamp);
+    font-weight:700;
+    font-size:16px;
+  }
+
+  /* ---------- EDUCATION ---------- */
+  .edu-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:var(--white-ish);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:20px 28px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .edu-row .name-of{ font-weight:600; font-size:16px; }
+  .edu-row .yrs{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--sage);
+  }
+
+  /* ---------- REFERENCES ---------- */
+  .refs-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:16px;
+  }
+  .ref-card{
+    background:var(--white-ish);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:20px 22px;
+    position:relative;
+  }
+  .ref-card::before{
+    content:"VERIFIED";
+    position:absolute;
+    top:14px;
+    right:14px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:9.5px;
+    letter-spacing:.1em;
+    color:var(--sage);
+    border:1px solid var(--sage);
+    border-radius:2px;
+    padding:2px 6px;
+  }
+  .ref-name{ font-weight:700; font-size:16px; margin:0 0 4px; }
+  .ref-role{ font-size:13.5px; color:var(--ink-soft); margin:0 0 12px; }
+  .ref-contact{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--sage);
+    word-break:break-word;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--line);
+    padding:36px 28px 50px;
+    max-width:920px;
+    margin:20px auto 0;
+    text-align:center;
+  }
+  footer .ft-title{
+    font-family:'Big Shoulders',sans-serif;
+    font-weight:700;
+    font-size:clamp(28px,5vw,42px);
+    text-transform:uppercase;
+    margin:0 0 14px;
+  }
+  footer .ft-sub{ color:var(--ink-soft); margin:0 0 24px; font-size:15px;}
+  .ft-contacts{
+    display:flex;
+    justify-content:center;
+    gap:24px;
+    flex-wrap:wrap;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+  }
+  .ft-contacts a{
+    text-decoration:none;
+    border-bottom:1px solid var(--kraft);
+    padding-bottom:2px;
+  }
+  .ft-contacts a:hover{ color:var(--stamp); border-color:var(--stamp); }
+  .ft-note{
+    margin-top:30px;
+    font-size:11px;
+    color:var(--ink-soft);
+    opacity:.6;
+    font-family:'JetBrains Mono',monospace;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ transition:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="filetabs" aria-label="Section navigation">
+  <a href="#summary">Summary</a>
+  <a href="#skills">Skills</a>
+  <a href="#experience">Experience</a>
+  <a href="#education">Education</a>
+  <a href="#references">References</a>
+</nav>
+
+<div class="wrap-header">
+<header class="record">
+  <p class="file-id">File No. REC&#8209;2026&#8209;SJB &nbsp;·&nbsp; Status: Active &nbsp;·&nbsp; Jurisdiction: Remote, U.S. Hours</p>
+  <h1 class="name">Samantha Julian<br>Bernabe</h1>
+  <p class="role-line">Operations Manager <span class="div">/</span> Real Estate Data Systems <span class="div">/</span> Title &amp; Public Records</p>
+  <div class="contact-row">
+    <a href="tel:+639277216732">+63 927&#8209;721&#8209;6732</a>
+    <a href="mailto:samanthajulianbernabe@gmail.com">samanthajulianbernabe@gmail.com</a>
+    <span>Bulacan, Philippines (Remote, U.S. Hours)</span>
+  </div>
+
+  <div class="stamp" aria-hidden="true">
+    <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="80" cy="80" r="74" fill="none" stroke="#a3372a" stroke-width="3"/>
+      <circle cx="80" cy="80" r="64" fill="none" stroke="#a3372a" stroke-width="1.5"/>
+      <path id="topCurve" d="M 22,80 A 58,58 0 0 1 138,80" fill="none"/>
+      <path id="botCurve" d="M 30,108 A 50,50 0 0 0 130,108" fill="none"/>
+      <text font-family="JetBrains Mono, monospace" font-size="12.5" font-weight="600" fill="#a3372a" letter-spacing="2">
+        <textPath href="#topCurve" startOffset="50%" text-anchor="middle">VERIFIED RECORD</textPath>
+      </text>
+      <text x="80" y="90" font-family="Big Shoulders, sans-serif" font-size="22" font-weight="700" fill="#a3372a" text-anchor="middle">2+ YRS</text>
+      <text font-family="JetBrains Mono, monospace" font-size="11" font-weight="600" fill="#a3372a" letter-spacing="2">
+        <textPath href="#botCurve" startOffset="50%" text-anchor="middle">DATA OPS</textPath>
+      </text>
+    </svg>
+  </div>
+</header>
+</div>
+
+<section id="summary">
+  <p class="eyebrow">Record Summary</p>
+  <div class="summary-card">
+    Operations Manager with <strong>2+ years</strong> building backend data systems for U.S. real estate platforms — specializing in distressed-property pipelines: probate, tax delinquent, code violations, and tax surplus. I work the full chain end to end &mdash; research, title verification, FOIA acquisition, data formatting, and team QA. <strong>I build the infrastructure first, then make sure it runs without me.</strong>
+  </div>
+</section>
+
+<section id="skills">
+  <p class="eyebrow">Core Skills Ledger</p>
+  <div class="ledger">
+    <div class="ledger-row">
+      <div class="ledger-label">Operations</div>
+      <div class="ledger-tags">
+        <span class="tag">SOP Development</span><span class="tag">Workflow Design</span><span class="tag">QA Systems</span><span class="tag">VA Training &amp; Management</span><span class="tag">Process Auditing</span>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-label">Public Records</div>
+      <div class="ledger-tags">
+        <span class="tag">NextRequest</span><span class="tag">GovQA</span><span class="tag">JustFOIA</span><span class="tag">County Portals</span><span class="tag">FOIA Acquisition</span>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-label">Distressed Data</div>
+      <div class="ledger-tags">
+        <span class="tag">Probate</span><span class="tag">Tax Delinquent</span><span class="tag">Tax Surplus / Overages</span><span class="tag">Code Violations</span><span class="tag">Inspection Records</span>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-label">Title Research</div>
+      <div class="ledger-tags">
+        <span class="tag">Deeds</span><span class="tag">Mortgages</span><span class="tag">Liens</span><span class="tag">Judgments</span><span class="tag">Tax Records</span><span class="tag">Ownership Verification</span>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-label">Tools</div>
+      <div class="ledger-tags">
+        <span class="tag">Google Sheets</span><span class="tag">Excel</span><span class="tag">Airtable</span><span class="tag">Zoho CRM</span><span class="tag">PropStream</span><span class="tag">Twilio</span><span class="tag">Google Workspace</span>
+      </div>
+    </div>
+    <div class="ledger-row">
+      <div class="ledger-label">Skip Tracing</div>
+      <div class="ledger-tags">
+        <span class="tag">TruePeopleSearch</span><span class="tag">BeenVerified</span><span class="tag">FindAGrave</span><span class="tag">County Record Systems</span><span class="tag">VeriPhone</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <p class="eyebrow">Case Files &mdash; Professional Experience</p>
+
+  <article class="case">
+    <div class="case-head">
+      <div>
+        <h3 class="case-title">Operations Manager</h3>
+        <div class="case-org">Snap Ignite — U.S. Real Estate Data Platform</div>
+      </div>
+      <span class="case-dates">Jan 2025 — Mar 2026</span>
+    </div>
+    <p class="case-brief">Built and ran the backend data operation for a distressed-property intelligence platform serving U.S. real estate investors.</p>
+    <ul class="findings">
+      <li>Owned end-to-end backend operations covering probate, tax delinquent, tax surplus, code violations, inspection records, building permits, and title data across multiple U.S. counties.</li>
+      <li>Performed title-level research — deeds, mortgages, liens, judgments, and tax records — to verify ownership and flag encumbrances before delivery.</li>
+      <li>Submitted and managed FOIA / public-records requests through NextRequest, GovQA, and direct county systems; cut turnaround time by building county-specific intake SOPs.</li>
+      <li>Designed CSV data structures and normalization rules to keep every delivery consistent and analyst-ready.</li>
+      <li>Trained, supervised, and QA'd a virtual assistant team with daily output reviews and error-rate tracking.</li>
+      <li>Identified recurring bottlenecks in data collection workflows and rebuilt processes to cut rework and improve throughput.</li>
+    </ul>
+  </article>
+
+  <article class="case">
+    <div class="case-head">
+      <div>
+        <h3 class="case-title">Real Estate Data &amp; Research Specialist</h3>
+        <div class="case-org">Contract / Freelance — U.S.-Based Clients</div>
+      </div>
+      <span class="case-dates">Jan 2024 — Mar 2026</span>
+    </div>
+    <p class="case-brief">Independent research and lead generation for U.S. real estate investors and acquisition teams.</p>
+    <ul class="findings">
+      <li>Pulled and analyzed probate, code violation, tax delinquent, and tax surplus data from county portals and court systems across multiple states.</li>
+      <li>Built targeted lead lists identifying property owners, heirs, and decision-makers using public records, obituaries, and skip-trace tools.</li>
+      <li>Conducted heir tracing and genealogy research using FindAGrave, county records, and people-search platforms.</li>
+      <li>Cleaned and structured raw datasets for CRM import and direct outreach, reducing data errors before campaigns launched.</li>
+      <li>Verified phone numbers at scale using the Twilio Lookup API and a Node.js CSV workflow built and deployed independently.</li>
+    </ul>
+  </article>
+</section>
+
+<section id="education">
+  <p class="eyebrow">Education</p>
+  <div class="edu-row">
+    <span class="name-of">ALS Graduate</span>
+    <span class="yrs">2020 — 2021</span>
+  </div>
+</section>
+
+<section id="references">
+  <p class="eyebrow">Verified Contacts &mdash; References</p>
+  <div class="refs-grid">
+    <div class="ref-card">
+      <p class="ref-name">Junior Dorelien</p>
+      <p class="ref-role">CEO &amp; Founder, Snap Ignite</p>
+      <p class="ref-contact">snapplatformhq@gmail.com<br>WhatsApp: +1 (754) 368&#8209;6122</p>
+    </div>
+    <div class="ref-card">
+      <p class="ref-name">Avilane Louis</p>
+      <p class="ref-role">Supervisor, Snap Ignite</p>
+      <p class="ref-contact">avilane.apl@gmail.com</p>
+    </div>
+    <div class="ref-card">
+      <p class="ref-name">Christopher Tassone</p>
+      <p class="ref-role">Founder, Powesell</p>
+      <p class="ref-contact">tassonecj34@gmail.com</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h2 class="ft-title">Open to new files</h2>
+  <p class="ft-sub">Available for operations &amp; data-systems roles in U.S. real estate.</p>
+  <div class="ft-contacts">
+    <a href="mailto:samanthajulianbernabe@gmail.com">samanthajulianbernabe@gmail.com</a>
+    <a href="tel:+639277216732">+63 927&#8209;721&#8209;6732</a>
+  </div>
+  <p class="ft-note">Bulacan, Philippines — Remote, U.S. Hours</p>
+</footer>
+
+</body>
+</html>
